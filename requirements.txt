@@ -1,0 +1,7 @@
+pydicom
+pynetdicom
+pytest
+requests
+fastapi[all]
+pytest
+sqlalchemy
