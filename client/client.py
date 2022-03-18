@@ -119,10 +119,10 @@ class SeriesDispatcher:
             dataset = await self.dataset_queue.get()
             asyncio.create_task(self.run_series_collectors(dataset))
 
-            print("my unit test 1")
+            #print("my unit test 1")
             # should receive error "exception=AttributeError("'NoneType' object has no attribute 'SeriesInstanceUID'")"" since the passed dataset is none
-            dataset = None
-            asyncio.create_task(self.run_series_collectors(dataset))
+            #dataset = None
+            #asyncio.create_task(self.run_series_collectors(dataset))
 
 
     async def run_series_collectors(self, dataset) -> None:
@@ -141,10 +141,12 @@ class SeriesDispatcher:
         # Create a task to dispatch current dataset
         asyncio.create_task(self.dispatch_series_collector(uid))
 
-        print("my unit test 2")
-        # should receive error "exception=AttributeError("'NoneType' object has no attribute 'SeriesInstanceUID'")"" since the passed dataset is none
-        asyncio.create_task(self.dispatch_series_collector(None))
 
+        
+        #print("my unit test 2")
+        # should receive error "exception=AttributeError("'NoneType' object has no attribute 'SeriesInstanceUID'")"" since the passed dataset is none
+        #asyncio.create_task(self.dispatch_series_collector(None))
+         
 
     async def dispatch_series_collector(self, UID) -> None:
         """Tries to dispatch a Series Collector, i.e. to finish it's dataset collection and scheduling of further
